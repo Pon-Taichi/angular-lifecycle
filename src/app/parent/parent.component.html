@@ -1,0 +1,41 @@
+<div class="parent">
+  <mat-card class="card" #card>
+    <mat-card-header>
+      <h1>Parent Component</h1>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2>Select</h2>
+
+      <mat-form-field>
+        <mat-label>Pokemon</mat-label>
+        <mat-select
+          #selectedPokemon
+          (valueChange)="select(selectedPokemon.value)"
+        >
+          <mat-option *ngFor="let pokemon of pokeList" [value]="pokemon">
+            {{ pokemon.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br />
+
+      <app-detail>
+        <h3 ja>{{ jaName }}</h3>
+      </app-detail>
+
+      <br />
+
+      <mat-card>
+        <mat-card-header><h2>Pokemon</h2></mat-card-header>
+        <mat-card-content>
+          <app-pokemon [pokemon]="pokemon?.name"></app-pokemon
+        ></mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<br />
+<a routerLink="/other">Other</a>
